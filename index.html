@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Fitness Calculator</title>
+    </head>
+
+    <body>
+        <form>
+            <label for="age">Age:</label><br>
+            <input type="number" step=1, id="age", name="age"><br>
+
+            <label for="genderGroup">Gender:</label>
+            <div id="genderGroup">
+                <label for="maleOption">Male</label>
+                <input type="radio" id="maleOption" value="Male" name="genderGroup">
+
+                <label for="femaleOption">Female</label>
+                <input type="radio" id="femaleOption" value="Female" name="genderGroup" checked>
+            </div><br>
+
+            <label for="height">Height:</label><br>
+            <input type="number" step="any" id="height" name="height"><br>
+
+            <label for="weight">Weight:</label><br>
+            <input type="number" step="any" id="weight" name="weight"><br>
+
+            <label for="wcirc">Waist Circumfrence:</label><br>
+            <input type="number" step="any" id="wcirc" name="wcirc"><br>
+
+            <div id="hcGroup">
+                <label for="hcirc" id="hcircLabel">Hip Circumfrence:</label><br>
+                <input type="number" step="any" id="hcirc" name="hcirc">
+            </div><br>
+
+            <label for="ncirc">Neck Circumfrence:</label><br>
+            <input type="number" step="any" id="ncirc" name="ncirc"><br><br>
+
+            <!--TODO: use button type-->
+            <input type="button" id="calculate" value="Calculate"/>
+        </form>
+
+        <script type = "text/javascript">
+        window.onload = function(){
+            // gender selector radio buttons click event handler
+            document.getElementById("maleOption").addEventListener("click", handleGenderSelectorClick);
+            document.getElementById("femaleOption").addEventListener("click", handleGenderSelectorClick);
+
+            function handleGenderSelectorClick(){
+                if (document.getElementById("maleOption").checked){
+                    hideHipCircumfrenceField(true);
+                }
+                else{
+                    hideHipCircumfrenceField(false);
+                }
+            }
+
+            // "Calculate" button click event handler
+            document.getElementById("calculate").addEventListener("click", function(){
+                // calculate body mass index
+                var height = Number(document.getElementById("height").value);
+                var weight = Number(document.getElementById("weight").value);
+                var bmi = calculateBMI(height, weight);
+
+                // calculate body fat percentage and show results in an alert message
+                // TODO: display it on the page itself
+                var waistCircumfrence = Number(document.getElementById("wcirc").value);
+                var neckCircumfrence = Number(document.getElementById("ncirc").value);
+                if (document.getElementById("maleOption").checked){
+                    alert("BMI: " + bmi + "\n"
+                    + "Body fat percentage (US Navy method): " + calculateBFPmale(waistCircumfrence, neckCircumfrence, height));
+                }
+                else{
+                    var hipCircumfrence = Number(document.getElementById("hcirc").value);
+                    alert("BMI: " + bmi + "\n"
+                    + "Body fat percentage (US Navy method): " + calculateBFPfemale(waistCircumfrence, neckCircumfrence, height, hipCircumfrence));
+                }
+                
+            }, false);
+        }
+
+        function calculateBMI(height, weight){
+            return (weight / Math.pow((height/100), 2));
+        }
+        
+        function calculateBFPmale(waist, neck, height){
+            return (495/(1.0324-0.19077*Math.log10(waist-neck) + 0.15456*Math.log10(height)))-450;
+        }
+
+        function calculateBFPfemale(waist, neck, height, hip){
+            return (495/(1.29579-0.35004*Math.log10(waist+hip-neck) + 0.22100*Math.log10(height)))-450;
+        }
+
+        function hideHipCircumfrenceField(hide){
+            if (hide){
+               document.getElementById("hcGroup").style.visibility="hidden";
+            }
+            else{
+                document.getElementById("hcGroup").style.visibility="visible";
+            }
+        }
+        </script>
+    </body>
+
+</html>
