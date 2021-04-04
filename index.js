@@ -1,10 +1,10 @@
 window.onload = function(){
     // gender selector radio buttons click event handler
-    document.getElementById("maleOption").addEventListener("click", handleGenderSelectorClick);
-    document.getElementById("femaleOption").addEventListener("click", handleGenderSelectorClick);
+    document.getElementById("male-option").addEventListener("click", handleGenderSelectorClick);
+    document.getElementById("female-option").addEventListener("click", handleGenderSelectorClick);
 
     function handleGenderSelectorClick(){
-        if (document.getElementById("maleOption").checked){
+        if (document.getElementById("male-option").checked){
             hideHipCircumfrenceField(true);
         }
         else{
@@ -21,14 +21,14 @@ window.onload = function(){
 
         // calculate body fat percentage and show results in an alert message
         // TODO: display it on the page itself
-        var waistCircumfrence = Number(document.getElementById("wcirc").value);
-        var neckCircumfrence = Number(document.getElementById("ncirc").value);
-        if (document.getElementById("maleOption").checked){
+        var waistCircumfrence = Number(document.getElementById("w-circ").value);
+        var neckCircumfrence = Number(document.getElementById("n-circ").value);
+        if (document.getElementById("male-option").checked){
             alert("BMI: " + bmi + "\n"
             + "Body fat percentage (US Navy method): " + calculateBFPmale(waistCircumfrence, neckCircumfrence, height));
         }
         else{
-            var hipCircumfrence = Number(document.getElementById("hcirc").value);
+            var hipCircumfrence = Number(document.getElementById("h-circ").value);
             alert("BMI: " + bmi + "\n"
             + "Body fat percentage (US Navy method): " + calculateBFPfemale(waistCircumfrence, neckCircumfrence, height, hipCircumfrence));
         }
@@ -50,9 +50,9 @@ function calculateBFPfemale(waist, neck, height, hip){
 
 function hideHipCircumfrenceField(hide){
     if (hide){
-       document.getElementById("hcGroup").style.visibility="hidden";
+       document.getElementById("hc-group").style.visibility="hidden";
     }
     else{
-        document.getElementById("hcGroup").style.visibility="visible";
+        document.getElementById("hc-group").style.visibility="visible";
     }
 }
