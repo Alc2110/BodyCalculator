@@ -33,15 +33,25 @@
 
             <div id="hc-group">
                 <label for="h-circ" id="hcir-label">Hip Circumfrence:</label><br>
-                <input type="number" step="any" id="hc-irc" name="h-circ">
+                <input type="number" step="any" id="h-circ" name="h-circ">
             </div><br>
 
             <label for="n-circ">Neck Circumfrence:</label><br>
             <input type="number" step="any" id="n-circ" name="n-circ"><br><br>
 
-            <!--TODO: use button type-->
             <input type="button" id="calculate" value="Calculate"/>
+
         </form>
+
+        <div id="results-group">
+            <h2>
+                <p id="bmi-result">BMI: </p>
+            </h2>
+
+            <h2>
+                <p id="bfp-result">Body Fat: </p>
+            </h2>
+        </div>
 
         <script src="index.js"></script>
     </body>

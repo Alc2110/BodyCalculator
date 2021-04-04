@@ -24,13 +24,15 @@ window.onload = function(){
         var waistCircumfrence = Number(document.getElementById("w-circ").value);
         var neckCircumfrence = Number(document.getElementById("n-circ").value);
         if (document.getElementById("male-option").checked){
-            alert("BMI: " + bmi + "\n"
-            + "Body fat percentage (US Navy method): " + calculateBFPmale(waistCircumfrence, neckCircumfrence, height));
+            var bfp = calculateBFPmale(waistCircumfrence, neckCircumfrence, height);
+
+            displayResults(bmi, bfp);
         }
         else{
             var hipCircumfrence = Number(document.getElementById("h-circ").value);
-            alert("BMI: " + bmi + "\n"
-            + "Body fat percentage (US Navy method): " + calculateBFPfemale(waistCircumfrence, neckCircumfrence, height, hipCircumfrence));
+            var bfp = calculateBFPfemale(waistCircumfrence, neckCircumfrence, height, hipCircumfrence);
+
+            displayResults(bmi, bfp);
         }
         
     }, false);
@@ -55,4 +57,9 @@ function hideHipCircumfrenceField(hide){
     else{
         document.getElementById("hc-group").style.display = "block";
     }
+}
+
+function displayResults(bmi, bfp){
+    document.getElementById("bmi-result").innerHTML = ("BMI: " + bmi);
+    document.getElementById("bfp-result").innerHTML = ("Body Fat: " + bfp);
 }
