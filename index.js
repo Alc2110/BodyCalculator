@@ -19,8 +19,7 @@ window.onload = function(){
         var weight = Number(document.getElementById("weight").value);
         var bmi = calculateBMI(height, weight);
 
-        // calculate body fat percentage and show results in an alert message
-        // TODO: display it on the page itself
+        // calculate body fat percentage and show results in the document
         var waistCircumfrence = Number(document.getElementById("w-circ").value);
         var neckCircumfrence = Number(document.getElementById("n-circ").value);
         if (document.getElementById("male-option").checked){
