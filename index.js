@@ -43,11 +43,11 @@ function calculateBMI(height, weight){
 }
 
 function calculateBFPmale(waist, neck, height){
-    return Math.round(495/(1.0324-0.19077*Math.log10(waist-neck) + 0.15456*Math.log10(height)))-450;
+    return 495/(1.0324-0.19077*Math.log10(waist-neck) + 0.15456*Math.log10(height))-450;
 }
 
 function calculateBFPfemale(waist, neck, height, hip){
-    return Math.round(495/(1.29579-0.35004*Math.log10(waist+hip-neck) + 0.22100*Math.log10(height)))-450;
+    return 495/(1.29579-0.35004*Math.log10(waist+hip-neck) + 0.22100*Math.log10(height))-450;
 }
 
 function hideHipCircumfrenceField(hide){
@@ -61,5 +61,5 @@ function hideHipCircumfrenceField(hide){
 
 function displayResults(bmi, bfp){
     document.getElementById("bmi-result").innerHTML = ("BMI: " + bmi);
-    document.getElementById("bfp-result").innerHTML = ("Body Fat: " + bfp);
+    document.getElementById("bfp-result").innerHTML = ("Body Fat: " + bfp + "%");
 }
