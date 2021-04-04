@@ -3,6 +3,7 @@ window.onload = function(){
     document.getElementById("male-option").addEventListener("click", handleGenderSelectorClick);
     document.getElementById("female-option").addEventListener("click", handleGenderSelectorClick);
 
+    // Gender selection event handler
     function handleGenderSelectorClick(){
         if (document.getElementById("male-option").checked){
             hideHipCircumfrenceField(true);
@@ -12,8 +13,45 @@ window.onload = function(){
         }
     }
 
+    function commonInputsValid(){
+        if (document.getElementById("age").value.length!=0 &&
+            document.getElementById("height").value.length!=0 &&
+            document.getElementById("weight").value.length!=0 &&
+            document.getElementById("w-circ").value.length!=0 &&
+            document.getElementById("n-circ").value.length!=0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+    }
+
+    function showInputAlert(){
+        alert("Please complete all required fields!");
+    }
+
     // "Calculate" button click event handler
     document.getElementById("calculate-button").addEventListener("click", function(){
+        // validate input
+        if (document.getElementById("male-option").checked)
+        {
+            if (!commonInputsValid())
+            {
+                showInputAlert();
+                return;
+            }
+        }
+        else
+        {
+            if (!commonInputsValid() || document.getElementById("h-circ").value.length==0)
+            {
+                showInputAlert();
+                return;
+            }
+        }
+
         // calculate body mass index
         var height = Number(document.getElementById("height").value);
         var weight = Number(document.getElementById("weight").value);
