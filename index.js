@@ -13,7 +13,7 @@ window.onload = function(){
     }
 
     // "Calculate" button click event handler
-    document.getElementById("calculate").addEventListener("click", function(){
+    document.getElementById("calculate-button").addEventListener("click", function(){
         // calculate body mass index
         var height = Number(document.getElementById("height").value);
         var weight = Number(document.getElementById("weight").value);
@@ -34,6 +34,21 @@ window.onload = function(){
             displayResults(bmi, bfp);
         }
         
+    }, false);
+
+    // "Clear" button click event handler
+    document.getElementById("clear-button").addEventListener("click", function(){
+        // clear results
+        document.getElementById("bmi-result").innerHTML = "BMI:";
+        document.getElementById("bfp-result").innerHTML = "Body Fat:";
+
+        // clear input fields
+        document.getElementById("age").value = "";
+        document.getElementById("height").value = "";
+        document.getElementById("weight").value = "";
+        document.getElementById("w-circ").value = "";
+        document.getElementById("h-circ").value = "";
+        document.getElementById("n-circ").value = "";
     }, false);
 }
 
