@@ -2,6 +2,8 @@
 <html>
     <head>
         <title>Fitness Calculator</title>
+
+        <link rel="stylesheet" href="styles.css">
     </head>
 
     <body>
@@ -9,13 +11,13 @@
             <label for="age">Age:</label><br>
             <input type="number" step=1, id="age", name="age"><br>
 
-            <label for="genderGroup">Gender:</label>
-            <div id="genderGroup">
-                <label for="maleOption">Male</label>
-                <input type="radio" id="maleOption" value="Male" name="genderGroup">
+            <label for="gender-group">Gender:</label>
+            <div id="gender-group">
+                <label for="male-option">Male</label>
+                <input type="radio" id="male-option" value="Male" name="gender-selector">
 
-                <label for="femaleOption">Female</label>
-                <input type="radio" id="femaleOption" value="Female" name="genderGroup" checked>
+                <label for="female-option">Female</label>
+                <input type="radio" id="female-option" value="Female" name="gender-selector" checked>
             </div><br>
 
             <label for="height">Height:</label><br>
@@ -24,16 +26,16 @@
             <label for="weight">Weight:</label><br>
             <input type="number" step="any" id="weight" name="weight"><br>
 
-            <label for="wcirc">Waist Circumfrence:</label><br>
-            <input type="number" step="any" id="wcirc" name="wcirc"><br>
+            <label for="w-circ">Waist Circumfrence:</label><br>
+            <input type="number" step="any" id="w-circ" name="w-circ"><br>
 
-            <div id="hcGroup">
-                <label for="hcirc" id="hcircLabel">Hip Circumfrence:</label><br>
-                <input type="number" step="any" id="hcirc" name="hcirc">
+            <div id="hc-group">
+                <label for="h-circ" id="hcir-label">Hip Circumfrence:</label><br>
+                <input type="number" step="any" id="hc-irc" name="h-circ">
             </div><br>
 
-            <label for="ncirc">Neck Circumfrence:</label><br>
-            <input type="number" step="any" id="ncirc" name="ncirc"><br><br>
+            <label for="n-circ">Neck Circumfrence:</label><br>
+            <input type="number" step="any" id="n-circ" name="n-circ"><br><br>
 
             <!--TODO: use button type-->
             <input type="button" id="calculate" value="Calculate"/>
