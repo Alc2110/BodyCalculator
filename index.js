@@ -50,9 +50,9 @@ function calculateBFPfemale(waist, neck, height, hip){
 
 function hideHipCircumfrenceField(hide){
     if (hide){
-       document.getElementById("hc-group").style.visibility="hidden";
+       document.getElementById("hc-group").style.display = "none";
     }
     else{
-        document.getElementById("hc-group").style.visibility="visible";
+        document.getElementById("hc-group").style.display = "block";
     }
 }
