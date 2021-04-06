@@ -1,0 +1,25 @@
+{
+  "name": "fitnesscalculator",
+  "version": "1.0.0",
+  "description": "Simple body mass index and body fat percentage calculator.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alc2110/BodyCalculator.git"
+  },
+  "author": "Alex Chlabicz",
+  "license": "ISC",
+  "dependencies": {
+    "node-stream": "^1.7.0"
+  },
+  "devDependencies": {
+    "electron": "^12.0.2"
+  },
+  "bugs": {
+    "url": "https://github.com/Alc2110/BodyCalculator/issues"
+  },
+  "homepage": "https://github.com/Alc2110/BodyCalculator#readme"
+}
