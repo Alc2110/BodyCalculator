@@ -1,6 +1,8 @@
 // This file is required by the index.html file and will be executed in the renderer process for that window.
 // All of the Node.js APIs are available in this process.
 
+const dialog = require('electron').remote.dialog;
+
 window.onload = function(){
     // gender selector radio buttons click event handler
     document.getElementById("male-option").addEventListener("click", handleGenderSelectorClick);
@@ -32,7 +34,8 @@ window.onload = function(){
     }
 
     function showInputAlert(){
-        alert("Please complete all required fields!");
+        //alert("Please complete all required fields!");
+        dialog.showErrorBox("Fitness Calculator", "Please complete all required fields!");
     }
 
     // "Calculate" button click event handler
