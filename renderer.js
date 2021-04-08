@@ -118,6 +118,6 @@ function hideHipCircumfrenceField(hide){
 }
 
 function displayResults(bmi, bfp){
-    document.getElementById("bmi-result").innerHTML = ("BMI: " + bmi);
-    document.getElementById("bfp-result").innerHTML = ("Body Fat: " + bfp + "%");
+    document.getElementById("bmi-result").innerHTML = ("BMI: " + bmi.toFixed(1));
+    document.getElementById("bfp-result").innerHTML = ("Body Fat: " + bfp.toFixed(1) + "%");
 }
