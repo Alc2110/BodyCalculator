@@ -13,6 +13,7 @@
   "author": "Alex Chlabicz",
   "license": "ISC",
   "dependencies": {
+    "jquery": "^3.6.0",
     "node-stream": "^1.7.0"
   },
   "devDependencies": {

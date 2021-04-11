@@ -3,45 +3,49 @@
 
 const dialog = require('electron').remote.dialog;
 
-window.onload = function(){
-    // gender selector radio buttons click event handler
-    document.getElementById("male-option").addEventListener("click", handleGenderSelectorClick);
-    document.getElementById("female-option").addEventListener("click", handleGenderSelectorClick);
+window.$ = window.jQuery = require('jquery');
+
+window.onload = function() {
+    // gender selector radio buttons click event 
+    $(document).on('click', '#male-option', function(event){ handleGenderSelectorClick() });
+    $(document).on('click', '#female-option', function(event){ handleGenderSelectorClick() });
 
     // Gender selection event handler
-    function handleGenderSelectorClick(){
-        if (document.getElementById("male-option").checked){
+    function handleGenderSelectorClick() {
+        if ($('#male-option').is(":checked"))
+        {
             hideHipCircumfrenceField(true);
         }
-        else{
+        else
+        {
             hideHipCircumfrenceField(false);
         }
     }
 
-    function commonInputsValid(){
-        if (document.getElementById("age").value.length!=0 &&
-            document.getElementById("height").value.length!=0 &&
-            document.getElementById("weight").value.length!=0 &&
-            document.getElementById("w-circ").value.length!=0 &&
-            document.getElementById("n-circ").value.length!=0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+    function commonInputsValid() {
+        if ( $('#age').val().length != 0 && 
+             $('#height').val().length != 0 &&
+             $('#weight').val().length != 0 &&
+             $('#w-circ').val().length != 0 &&
+             $('#n-circ').val().length != 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
-    function showInputAlert(){
-        //alert("Please complete all required fields!");
+    function showInputAlert() {
         dialog.showErrorBox("Fitness Calculator", "Please complete all required fields!");
     }
 
     // "Calculate" button click event handler
-    document.getElementById("calculate-button").addEventListener("click", function(){
+    $(document).on('click', '#calculate-button', function(event)
+    {
         // validate input
-        if (document.getElementById("male-option").checked)
+        if ($('#male-option').is(":checked"))
         {
             if (!commonInputsValid())
             {
@@ -51,7 +55,7 @@ window.onload = function(){
         }
         else
         {
-            if (!commonInputsValid() || document.getElementById("h-circ").value.length==0)
+            if (!commonInputsValid() || $('#h-circ').val().length==0)
             {
                 showInputAlert();
                 return;
@@ -59,65 +63,69 @@ window.onload = function(){
         }
 
         // calculate body mass index
-        var height = Number(document.getElementById("height").value);
-        var weight = Number(document.getElementById("weight").value);
+        var height = Number($('#height').val());
+        var weight = Number($('#weight').val());
         var bmi = calculateBMI(height, weight);
 
-        // calculate body fat percentage and show results in the document
-        var waistCircumfrence = Number(document.getElementById("w-circ").value);
-        var neckCircumfrence = Number(document.getElementById("n-circ").value);
-        if (document.getElementById("male-option").checked){
+        // calculate body fat percentage
+        // show results in document
+        var waistCircumfrence = Number($('#w-circ').val());
+        var neckCircumfrence = Number($('#n-circ').val());
+        if (document.getElementById("male-option").checked)
+        {
             var bfp = calculateBFPmale(waistCircumfrence, neckCircumfrence, height);
 
             displayResults(bmi, bfp);
         }
-        else{
-            var hipCircumfrence = Number(document.getElementById("h-circ").value);
+        else
+        {
+            var hipCircumfrence = Number($('#h-circ').val());
             var bfp = calculateBFPfemale(waistCircumfrence, neckCircumfrence, height, hipCircumfrence);
 
             displayResults(bmi, bfp);
-        }
-        
-    }, false);
+        }    
+    });
 
     // "Clear" button click event handler
-    document.getElementById("clear-button").addEventListener("click", function(){
+    $(document).on('click', '#clear-button', function(event) {
         // clear results
-        document.getElementById("bmi-result").innerHTML = "BMI:";
-        document.getElementById("bfp-result").innerHTML = "Body Fat:";
+       $('#bmi-result').html("BMI:");
+       $('#bfp-result').html("Body Fat:");
 
         // clear input fields
-        document.getElementById("age").value = "";
-        document.getElementById("height").value = "";
-        document.getElementById("weight").value = "";
-        document.getElementById("w-circ").value = "";
-        document.getElementById("h-circ").value = "";
-        document.getElementById("n-circ").value = "";
-    }, false);
+        $('#age').val("");
+        $('#height').val("");
+        $('#weight').val("");
+        $('#w-circ').val("");
+        $('#h-circ').val("");
+        $('#n-circ').val("");
+    });
 }
 
-function calculateBMI(height, weight){
+function calculateBMI(height, weight) {
     return (weight / Math.pow((height/100), 2));
 }
 
-function calculateBFPmale(waist, neck, height){
+function calculateBFPmale(waist, neck, height) {
     return 495/(1.0324-0.19077*Math.log10(waist-neck) + 0.15456*Math.log10(height))-450;
 }
 
-function calculateBFPfemale(waist, neck, height, hip){
+function calculateBFPfemale(waist, neck, height, hip) {
     return 495/(1.29579-0.35004*Math.log10(waist+hip-neck) + 0.22100*Math.log10(height))-450;
 }
 
-function hideHipCircumfrenceField(hide){
-    if (hide){
-       document.getElementById("hc-group").style.display = "none";
+function hideHipCircumfrenceField(hide) {
+    if (hide)
+    {
+       $('#hc-group').css("display", "none");
     }
-    else{
-        document.getElementById("hc-group").style.display = "block";
+    else
+    {
+        $('#hc-group').css("display", "block");
     }
 }
 
-function displayResults(bmi, bfp){
-    document.getElementById("bmi-result").innerHTML = ("BMI: " + bmi.toFixed(1));
-    document.getElementById("bfp-result").innerHTML = ("Body Fat: " + bfp.toFixed(1) + "%");
+function displayResults(bmi, bfp) {
+   $('#bmi-result').html("BMI: " + bmi.toFixed(1));
+   $('#bfp-result').html("Body Fat: " + bfp.toFixed(1) + "%");
 }
