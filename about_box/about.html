@@ -40,7 +40,7 @@
             // close the dialog upon "OK" button click
             $(document).on('click', '#ok-button', (event) => {
                 var dialog = remote.getCurrentWindow();
-                window.close();
+                dialog.close();
             });
         </script>
     </body>
