@@ -18,7 +18,16 @@ Electron apps can run on Windows, Mac and Linux.
 ## Installation and Setup
 For a quick guide to downloading and running this app, refer to "Usage".
 
-TODO: add instructions to build for Windows, Mac and Linux.
+`electron-packager` is used to package the application. Use one of the following commands:
+```
+npm run package-win
+
+npm run package-mac
+
+npm run package-linux
+```
+
+The scripts executed by the above commands are found in `package.json`.
 
 ## Architecture
 This is a simple Electron app. In a nutshell, Electron apps have two processes:
