@@ -1,4 +1,4 @@
-# BodyCalculator
+# FitnessCalculator
 
 ## Description and Requirements
 Simple body mass index and body fat percentage calculator, in Electron.
