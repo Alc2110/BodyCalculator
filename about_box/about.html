@@ -19,6 +19,7 @@
             Thanks To:
             </p>
             <ul>
+                <li>Strength icon by <a href="https://icons8.com/" id="icon-link">Icons8</a></li>
                 <li>Electron by OpenJS Foundation</li>
                 <li>jQuery by John Resig</li>
             </ul>
@@ -33,6 +34,12 @@
 
             // open license link in external browser
             $(document).on('click', '#license-link', (event, url) => {
+                event.preventDefault();
+                shell.openExternal(event.target.href);
+            })
+
+            // open icon link in external browser
+            $(document).on('click', '#icon-link', (event, url) => {
                 event.preventDefault();
                 shell.openExternal(event.target.href);
             })

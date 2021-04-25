@@ -4,7 +4,10 @@
   "description": "Simple body mass index and body fat percentage calculator.",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=./resources/icons8-strength-50.icns --prune=true --out=release-builds",
+    "package-win": "electron-packager . FitnessCalculator --overwrite --asar --platform=win32 --arch=ia32 --icon=./resources/icons8-strength-50.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"FitnessCalculator\"",    
+    "package-linux": "electron-packager . FitnessCalculator --overwrite --asar --platform=linux --arch=x64 --icon=./resources/icons8-strength-50.png --prune=true --out=release-builds"
   },
   "repository": {
     "type": "git",
@@ -17,7 +20,8 @@
     "node-stream": "^1.7.0"
   },
   "devDependencies": {
-    "electron": "^12.0.2"
+    "electron": "^12.0.2",
+    "electron-packager": "^15.2.0"
   },
   "bugs": {
     "url": "https://github.com/Alc2110/BodyCalculator/issues"
