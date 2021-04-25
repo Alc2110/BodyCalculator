@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>About FitnessCalculator</title>
+
+        <link rel="stylesheet" href="../styles.css">
+    </head>
+    <body>
+        <h2>About FitnessCalculator</h2>
+
+        <div id="details">
+            <p>
+            Simple body mass index and body fat percentage calculator.
+            </p>
+            <p>
+            License: <a href="https://choosealicense.com/licenses/mit/" id="license-link">MIT</a>
+            </p>
+            <p>
+            Thanks To:
+            </p>
+            <ul>
+                <li>Electron by OpenJS Foundation</li>
+                <li>jQuery by John Resig</li>
+            </ul>
+        </div>
+
+        <button id="ok-button">OK</button>
+
+        <script>
+            window.$ = window.jQuery = require('jquery');
+            const shell = require('electron').shell;
+            const remote = require('electron').remote;
+
+            // open license link in external browser
+            $(document).on('click', '#license-link', (event, url) => {
+                event.preventDefault();
+                shell.openExternal(event.target.href);
+            })
+
+            // close the dialog upon "OK" button click
+            $(document).on('click', '#ok-button', (event) => {
+                var dialog = remote.getCurrentWindow();
+                window.close();
+            });
+        </script>
+    </body>
+<html>
