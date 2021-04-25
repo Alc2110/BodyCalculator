@@ -1,32 +1,43 @@
-body{
+body {
     margin: auto;
     text-align: center;
     background-color: #29bb89;
 }
 
-h1{
+h1 {
     color: #e6dd3b;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-h2{
+h2 {
     color: #e6dd3b;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-label{
+label {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-#calculate-button{
+#calculate-button {
     width: 150px;
     margin-top: 10px;
 }
 
-#clear-button{
+#clear-button {
     display: block;
     margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
     width: 150px;
+}
+
+#ok-button {
+    width: 150px;
+}
+
+#details {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    text-align: left;
+    margin: 10px 10px 10px 10px;
 }
