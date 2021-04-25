@@ -1,4 +1,4 @@
-# BodyCalculator
+# FitnessCalculator
 
 ## Description and Requirements
 Simple body mass index and body fat percentage calculator, in Electron.
@@ -44,8 +44,3 @@ Please make sure to update tests as appropriate.
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
-
-## TODO
-* complete README
-* support Imperial units
-* round answers to two decimal places
