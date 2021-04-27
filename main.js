@@ -6,7 +6,7 @@ const { remote } = require('electron');
 const { app, BrowserWindow, Menu } = electron;
 
 // SET ENV
-process.env.NODE_ENV = 'production'; // uncomment this to use dev mode
+process.env.NODE_ENV = 'production'; // comment this to use dev mode
 
 let mainWindow;
 let aboutBox;
