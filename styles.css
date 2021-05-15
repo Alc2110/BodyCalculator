@@ -7,6 +7,7 @@ body {
 h1 {
     color: #e6dd3b;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 22.5px;
 }
 
 h2 {
@@ -16,6 +17,7 @@ h2 {
 
 label {
     font-family: Arial, Helvetica, sans-serif;
+    font-size: 12.5px;
 }
 
 #calculate-button {
@@ -40,4 +42,8 @@ label {
     font-size: 12px;
     text-align: left;
     margin: 10px 10px 10px 10px;
+}
+
+#results-group {
+    font-size: 12px;
 }

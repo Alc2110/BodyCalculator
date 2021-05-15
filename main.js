@@ -15,8 +15,8 @@ let aboutBox;
 app.on('ready', function(){
     // create window
     mainWindow = new BrowserWindow({
-    width: 500,
-    height: 800,
+    width: 400,
+    height: 720,
     webPreferences: {
         nodeIntegration: true,
         contextIsolation: false,
