@@ -45,8 +45,8 @@ This is a simple Electron app. In a nutshell, Electron apps have two processes:
 4. Run the app: `npm start`
 
 ## Attributions
-* jQuery by John Resig
-* Electron by OpenJS Foundation
+* jQuery 3.6.0 by John Resig
+* Electron 12.0.2 by OpenJS Foundation
 * Strength icon by Icons8
 
 ## Contributing
